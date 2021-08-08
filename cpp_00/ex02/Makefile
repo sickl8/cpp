@@ -1,6 +1,7 @@
  
 CC=clang++
-FLAGS=-Wall -Wextra -Werror -std=c++98
+STD=-std=c++98
+FLAGS=-Wall -Wextra -Werror $(STD)
 SRC=Account.cpp tests.cpp
 REQ=$(SRC) Account.hpp
 NAME=test
