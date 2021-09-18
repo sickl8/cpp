@@ -30,7 +30,12 @@ std::string	PhoneBook::input(std::string prompt) {
 	std::getline(std::cin, ret);
 	if (ret[ret.length() - 1] == '\n')
 		ret = ret.substr(0, ret.length() - 1);
-	return (ret);	
+	if (!ret.length())
+	{
+		std::cout << "BYE\n";
+		exit(0);
+	}
+	return (ret);
 }
 
 void	PhoneBook::PrintInfo(std::string str) {
