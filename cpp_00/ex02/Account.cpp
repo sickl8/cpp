@@ -94,6 +94,7 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 }
 
 Account::Account(int init) {
+	memset(this, 0, sizeof(Account));
 	this->_accountIndex = getNbAccounts();
 	this->_totalAmount += init;
 	this->_amount = init;
