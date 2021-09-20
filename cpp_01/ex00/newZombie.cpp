@@ -6,12 +6,12 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:34:23 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/19 17:36:43 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/20 17:21:17 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie(std::string name) {
+Zombie	*Zombie::newZombie(std::string name) {
 	return (new Zombie(name));
 }

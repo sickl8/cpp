@@ -6,7 +6,7 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 17:28:36 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/19 17:33:15 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/20 17:24:10 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie(std::string name) {
 }
 
 Zombie::~Zombie() {
-	std::cout << this->name + "ZZzzzzz..." << std::endl;
+	std::cout << this->name + " ZZzzzzz..." << std::endl;
 }
 
 void Zombie::announce(void) {
