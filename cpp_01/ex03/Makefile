@@ -1,7 +1,11 @@
-NAME=zombie
-SRC=Zombie.cpp\
-ZombieHorde.cpp\
-main.cpp
+NAME=weapon
+SRC=main.cpp\
+Weapon.cpp\
+Weapon.hpp\
+HumanA.cpp\
+HumanA.hpp\
+HumanB.cpp\
+HumanB.hpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror
 

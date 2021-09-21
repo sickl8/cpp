@@ -1,7 +1,5 @@
-NAME=zombie
-SRC=Zombie.cpp\
-ZombieHorde.cpp\
-main.cpp
+NAME=str
+SRC=main.cpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror
 
