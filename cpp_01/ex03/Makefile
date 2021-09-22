@@ -1,11 +1,8 @@
 NAME=weapon
 SRC=main.cpp\
 Weapon.cpp\
-Weapon.hpp\
 HumanA.cpp\
-HumanA.hpp\
-HumanB.cpp\
-HumanB.hpp
+HumanB.cpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror
 
