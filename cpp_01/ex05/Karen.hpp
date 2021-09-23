@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+typedef std::string string;
+
 class Karen {
 	private:
 		void	debug( void );
@@ -10,7 +12,6 @@ class Karen {
 		void	warning( void );
 		void	error( void );
 	public:
-		// Karen();
 		void complain( std::string level );
 };
 

@@ -1,10 +1,8 @@
 NAME=karen
-SRC=Makefile\
-main.cpp\
-Karen.hpp\
+SRC=main.cpp\
 Karen.cpp
 CC=clang++
-FLAGS=-Wall -Wextra -Werror 
+FLAGS=-Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -17,6 +15,9 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
+san: fclean
+	$(CC) $(SRC) $(FLAGS) -g -fsanitize=address -o $(NAME)
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re san
