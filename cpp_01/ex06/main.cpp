@@ -6,7 +6,7 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 18:28:20 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/24 12:35:11 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/24 16:12:45 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		main(int ac, char **av) {
 
 	if (ac != 2) {
 		cerr << "Illegal number of arguments." << std::endl;
+		return (0);
 	}
 	string in = av[1];
 	Karen k;

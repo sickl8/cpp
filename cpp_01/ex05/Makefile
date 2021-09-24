@@ -10,7 +10,7 @@ $(NAME):
 	$(CC) $(SRC) $(FLAGS) -o $(NAME)
 
 clean:
-	rm -rf *.dSYM *.o
+	rm -rf $(NAME).dSYM
 
 fclean: clean
 	rm -rf $(NAME)

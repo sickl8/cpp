@@ -6,13 +6,52 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 15:08:08 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/22 18:18:58 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/24 16:00:24 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <vector>
+
+class Node {
+	public:
+		size_t	val;
+		Node	*next;
+};
+
+class Vector {
+	public:
+		Vector() {
+			this->list = NULL;
+			this->size = 0;
+		};
+		void	freeNode(Node *node) {
+			if (node->next) {
+				freeNode(node->next);
+			}
+			delete node;
+		}
+		~Vector() {
+			freeNode(this->list);
+		};
+		void	push_back(size_t num) {
+			Node	*_new = new Node;
+			Node	**tracer = &this->list;
+
+			_new->val = num;
+			_new->next = NULL;
+			while (*tracer != NULL) {
+				tracer = &(*tracer)->next;
+			}
+			*tracer = _new;
+		}
+		Node	**head() {
+			return &this->list;
+		}
+	private:
+		Node	*list;
+		//size_t	size;
+};
 
 typedef std::string string;
 
@@ -57,7 +96,7 @@ int		main(int ac, char **av) {
 	}
 	string buf = string(buffer);
 	delete [] buffer;
-	std::vector<size_t>	occurances;
+	Vector	occurances;
 	size_t	s1l = s1.length();
 	size_t	index = -s1l;
 	while (true) {
@@ -71,9 +110,9 @@ int		main(int ac, char **av) {
 	string replaced = "";
 	size_t begin = 0;
 	string sub;
-	for (std::vector<size_t>::iterator itr = occurances.begin(); itr != occurances.end(); itr++) {
-		sub = buf.substr(begin, *itr - begin);
-		begin = *itr + s1l;
+	for (Node **itr = occurances.head(); *itr != NULL; itr = &(*itr)->next) {
+		sub = buf.substr(begin, (*itr)->val - begin);
+		begin = (*itr)->val + s1l;
 		replaced += (sub);
 		replaced += (s2);
 	}

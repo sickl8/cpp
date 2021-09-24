@@ -1,17 +1,20 @@
 NAME=replace
 SRC=main.cpp
 CC=clang++
-FLAGS=-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+FLAGS=-Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME):
 	$(CC) $(SRC) $(FLAGS) -o $(NAME)
 
 clean:
-	rm -rf *.dSYM *.o
+	rm -rf $(NAME).dSYM
 
 fclean: clean
 	rm -rf $(NAME)
+
+san: fclean
+	$(CC) $(SRC) $(FLAGS) -g3 -fsanitize=address -o $(NAME)
 
 re: fclean all
 
