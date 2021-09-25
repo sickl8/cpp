@@ -1,4 +1,4 @@
-NAME=prog
+NAME=a.out
 SRC=main.cpp\
 Fixed.cpp
 CC=clang++
