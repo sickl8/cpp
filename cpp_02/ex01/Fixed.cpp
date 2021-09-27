@@ -6,13 +6,24 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:28:29 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/27 19:17:42 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/27 19:38:25 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+#include <cmath>
+
 #define out std::cout
+
+#define eo2(x) (((x + 127) << 23))
+
+float	exponentOftwo(int x) {
+	float ret;
+	int tmp = eo2(x);
+	ret = *(float*)&tmp;
+	return ret;
+}
 
 Fixed::~Fixed() {
 	out << "Destructor called" << std::endl;
@@ -40,12 +51,13 @@ Fixed::Fixed(const float num) {
 	out << "Float constructor called" << std::endl;
 	int sign = num < 0 ? -1 : 1;
 	this->val = ((int)(num * sign)) << this->fbits;
-	int dec = (((num * sign) - (float)(int)(num * sign)) * 1e7) / 128;
+	int dec = (int)(((((num * sign) - (float)(int)(num * sign)) / exponentOftwo(-7))));
+	out << dec << std::endl;
+	out << ((float)dec * exponentOftwo(-7)) << std::endl;
 	// #include <bitset>
 	// char a = -58;
 	// std::bitset<8> x(a);
 	// std::cout << x << '\n';
-	// out << ((int)((float)(num * sign - (int)(num * sign))) * 256) << std::endl;
 	this->val *= sign;
 }
 
