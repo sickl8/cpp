@@ -6,7 +6,7 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:28:29 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/28 19:27:04 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/28 19:28:36 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,6 @@ Fixed::Fixed(const float num) {
 	dec[1] = roundf(close);
 	int index = abso((((float)(dec[0] & 0b11111111)) / (1 << this->fbits)) - decp) > abso((((float)(dec[1] & 0b11111111)) / (1 << this->fbits)) - decp);
 	dec[2] = dec[index];
-	// dec[2] = roundf(decp * (1 << this->fbits));
-	// if (decp * (1 << this->fbits) && !(dec[2] & 0b11111111))
-		// dec[2] = decp * (1 << this->fbits);
 	this->val |= (dec[2] & 0b11111111);
 	this->val *= sign;
 }
