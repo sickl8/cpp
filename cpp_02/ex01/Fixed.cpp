@@ -51,13 +51,12 @@ Fixed::Fixed(const float num) {
 	out << "Float constructor called" << std::endl;
 	int sign = num < 0 ? -1 : 1;
 	this->val = ((int)(num * sign)) << this->fbits;
-	int dec = (int)(((((num * sign) - (float)(int)(num * sign)) / exponentOftwo(-7))));
-	out << dec << std::endl;
-	out << ((float)dec * exponentOftwo(-7)) << std::endl;
-	// #include <bitset>
-	// char a = -58;
-	// std::bitset<8> x(a);
-	// std::cout << x << '\n';
+	float decimal_point = ((num) - (int)(num));
+	out << "dp = " << decimal_point << std::endl;
+	// int dec = (int)(((decimal_point * (2 << this->fbits))));
+	out << "num = " << num << std::endl;
+	int dec = ((*(int*)&decimal_point) >> (23 - this->fbits)) & 0b11111111;
+	out << ((float)dec / (2 << this->fbits)) << std::endl;
 	this->val *= sign;
 }
 
