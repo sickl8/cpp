@@ -52,7 +52,7 @@ Fixed &Fixed::operator=(const Fixed &ref) {
 	#ifndef DEBUG
 	out << "Assignation operator called" << std::endl;
 	#endif
-	this->val = ref.getRawBits();
+	this->val = ref.val;
 	return *this;
 }
 
@@ -98,7 +98,7 @@ Fixed::Fixed(const Fixed &ref) {
 		#ifndef DEBUG
 	out << "Copy constructor called" << std::endl;
 	#endif
-	this->val = ref.getRawBits();
+	*this = ref;
 }
 
 int		Fixed::getRawBits() const {

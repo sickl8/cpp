@@ -2,7 +2,7 @@ NAME=a.out
 SRC=main.cpp\
 Fixed.cpp
 CC=clang++
-FLAGS=-Wall -Wextra -Werror -DDEBUG
+FLAGS=-Wall -Wextra -Werror 
 
 all: $(NAME)
 
