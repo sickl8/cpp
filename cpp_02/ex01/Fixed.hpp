@@ -6,7 +6,7 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:28:26 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/27 18:26:28 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/09/28 17:39:22 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ class Fixed {
 };
 
 std::ostream &operator<<(std::ostream &ref, const Fixed &ref2);
-
+int		as_int(float num);
+float	as_float(int num);
 #endif
