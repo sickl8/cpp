@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: sickl8 <sickl8@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:28:26 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/28 17:39:22 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/10/01 11:22:44 by sickl8           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Fixed {
 		int		operator<(const Fixed &ref);
 		int		operator<=(const Fixed &ref);
 		int		operator>=(const Fixed &ref);
-		int		operator==(const Fixed &ref);
+		int		operator==(const Fixed &ref) const;
 		int		operator!=(const Fixed &ref);
 		int		getRawBits(void) const;
 		int		toInt( void ) const;
@@ -49,6 +49,8 @@ class Fixed {
 	private:
 		int	val;
 		static const int fbits = 8;
+		static const unsigned int inf = (~0U);
+
 };
 
 std::ostream &operator<<(std::ostream &ref, const Fixed &ref2);

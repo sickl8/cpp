@@ -1,9 +1,9 @@
 NAME=a.out
 SRC=main.cpp\
-Fixed.cpp
+Fixed.cpp\
 Point.cpp
 CC=clang++
-FLAGS=-Wall -Wextra -Werror -DDEBUG
+FLAGS=-Wall -Wextra -Werror -std=c++98 -DDEBUG
 
 all: $(NAME)
 
