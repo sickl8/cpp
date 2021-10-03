@@ -12,8 +12,12 @@ class Line {
 		Line(const Fixed &m, const Fixed &b);
 		Line &operator=(const Line &ref);
 		bool operator==(const Line &ref);
-		Fixed	Fx(Fixed &ref);
+		Fixed	Fx(Fixed &ref) const;
 		bool	pointBelongsToLine(Point p);
+		bool	pointBelongsToSegment(Point p);
+		bool	pointBelongsToSegmentStrict(Point p);
+		bool	linesIntersect(const Line &ref);
+		Point	*lineIntersection(const Line &ref);
 	private:
 		Point	A;
 		Point	B;

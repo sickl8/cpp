@@ -1,7 +1,9 @@
 NAME=a.out
 SRC=main.cpp\
 Fixed.cpp\
-Point.cpp
+Point.cpp\
+Line.cpp\
+bsp.cpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror -std=c++98 -DDEBUG
 

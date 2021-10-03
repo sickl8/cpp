@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sickl8 <sickl8@student.42.fr>              +#+  +:+       +#+        */
+/*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 18:28:29 by isaadi            #+#    #+#             */
-/*   Updated: 2021/10/01 11:55:59 by sickl8           ###   ########.fr       */
+/*   Updated: 2021/10/03 17:40:21 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,44 +185,69 @@ int Fixed::operator==(const Fixed &ref) const
 	return this->val == ref.val;
 }
 
-int Fixed::operator!=(const Fixed &ref)
+int Fixed::operator!=(const Fixed &ref) const
 {
 	return this->val != ref.val;
 }
 
-Fixed &Fixed::operator+(const Fixed &ref)
+Fixed	Fixed::operator+(const Fixed &ref) const
 {
-	this->val += ref.val;
-	return *this;
-}
-
-Fixed &Fixed::operator-(const Fixed &ref)
-{
-	this->val -= ref.val;
-	return *this;
-}
-
-Fixed &Fixed::operator*(const Fixed &ref)
-{
-	this->val = ((long)this->val * (long)ref.val) >> 8;
-	if (ref.val == Fixed::inf || this->val == Fixed::inf) {
-		
+	Fixed	ret;
+	
+	ret = *this;
+	if (ret.val == Fixed::inf) {
+		return ret;
 	}
-	return *this;
+	ret.val += ref.val;
+	return ret;
 }
 
-Fixed &Fixed::operator/(const Fixed &ref)
+Fixed	Fixed::operator-(const Fixed &ref) const
 {
+	Fixed	ret;
+	
+	ret = *this;
+	if (ret.val == Fixed::inf) {
+		return ret;
+	}
+	ret.val -= ref.val;
+	return ret;
+}
+
+Fixed	Fixed::operator*(const Fixed &ref) const
+{
+	Fixed	ret;
+	
+	ret = *this;
+	if (ref.val == Fixed::inf && ret.val) {
+		ret.val = Fixed::inf;
+		return ret;
+	}
+	ret.val = ((long)ret.val * (long)ref.val) >> 8;
+	return ret;
+}
+
+Fixed	Fixed::operator/(const Fixed &ref) const
+{
+	Fixed	ret;
+	
+	ret = *this;
 	if (ref.val == 0) {
-		this->val = Fixed::inf;
-		return *this;
+		ret.val = Fixed::inf;
+		return ret;
+	} else if (ref.val == Fixed::inf) {
+		ret.val = 0;
+		return ret;
 	}
-	this->val = (((long)this->val) << 8) / ref.val;
-	return *this;
+	ret.val = (((long)ret.val) << 8) / ref.val;
+	return ret;
 }
 
 Fixed &Fixed::operator++()
 {
+	if (this->val == Fixed::inf) {
+		return *this;
+	}
 	this->val += 1;
 	return *this;
 }
@@ -231,6 +256,9 @@ Fixed Fixed::operator++(int)
 {
 	Fixed ret;
 
+	if (this->val == Fixed::inf) {
+		return *this;
+	}
 	ret = *this;
 	this->val += 1;
 	return ret;
@@ -238,6 +266,9 @@ Fixed Fixed::operator++(int)
 
 Fixed &Fixed::operator--()
 {
+	if (this->val == Fixed::inf) {
+		return *this;
+	}
 	this->val -= 1;
 	return *this;
 }
@@ -246,6 +277,9 @@ Fixed Fixed::operator--(int)
 {
 	Fixed ret;
 
+	if (this->val == Fixed::inf) {
+		return *this;
+	}
 	ret = *this;
 	this->val -= 1;
 	return ret;
@@ -275,4 +309,8 @@ const Fixed &Fixed::max(const Fixed &ref0, const Fixed &ref1)
 	a = ref0;
 	b = ref1;
 	return a > b ? ref0 : ref1;
+}
+
+bool	Fixed::isInf() const {
+	return this->val == Fixed::inf;
 }
