@@ -6,7 +6,7 @@
 /*   By: isaadi <isaadi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 15:08:08 by isaadi            #+#    #+#             */
-/*   Updated: 2021/09/24 16:00:24 by isaadi           ###   ########.fr       */
+/*   Updated: 2021/10/03 18:53:12 by isaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ class Vector {
 			this->size = 0;
 		};
 		void	freeNode(Node *node) {
-			if (node->next) {
-				freeNode(node->next);
+			if (node) {
+				if (node->next)
+					freeNode(node->next);
+				delete node;
 			}
-			delete node;
 		}
 		~Vector() {
 			freeNode(this->list);
@@ -50,7 +51,7 @@ class Vector {
 		}
 	private:
 		Node	*list;
-		//size_t	size;
+		size_t	size;
 };
 
 typedef std::string string;
