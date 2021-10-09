@@ -20,3 +20,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 void		ScavTrap::attack(std::string const & target) {
 	out << "ScavTrap " << this->name << " attack " << target << ", causing " << this->attackDamage << " point" << (this->attackDamage == 1 ? "" : "s") << " of damage!" << endl;
 }
+
+void		ScavTrap::guardGate() {
+	out << "ScavTrap has enterred in Gate keeper mode" << endl;
+}

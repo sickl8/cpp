@@ -1,10 +1,12 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-	FragTrap	obj("slaptrap");
+	DiamondTrap	obj("slaptrap");
 
 	obj.attack("5tk");
 	obj.takeDamage(10);
 	obj.beRepaired(10);
 	obj.highFivesGuys();
+	obj.guardGate();
+	obj.whoAmI();
 }

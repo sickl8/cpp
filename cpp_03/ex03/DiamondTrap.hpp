@@ -4,11 +4,15 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap: public ClapTrap, public FragTrap {
+class DiamondTrap: public ScavTrap, public FragTrap {
 	public:
 		DiamondTrap();
 		~DiamondTrap();
 		DiamondTrap(std::string name);
+		void	attack(std::string const & ref);
+		void	whoAmI();
+	private:
+		std::string name;
 };
 
 #endif

@@ -2,9 +2,10 @@ NAME=a.out
 SRC=ClapTrap.cpp\
 ScavTrap.cpp\
 FragTrap.cpp\
+DiamondTrap.cpp\
 main.cpp
 CC=clang++
-FLAGS=-Wall -Wextra -Werror
+FLAGS=-Wall -Wextra -Werror -Wno-shadow
 
 all: $(NAME)
 
