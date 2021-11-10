@@ -1,5 +1,10 @@
 NAME=a.out
-SRC=main.cpp
+SRC=AMateria.cpp\
+Character.cpp\
+Cure.cpp\
+Ice.cpp\
+MateriaSource.cpp\
+main.cpp
 CC=clang++
 CCLEAK = ~/.brew/Cellar/llvm/12.0.0_1/bin/clang++
 FLAGS=-Wall -Wextra -Werror -std=c++98
