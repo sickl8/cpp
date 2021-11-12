@@ -6,16 +6,17 @@
 
 # include "GradeTooHighException.hpp"
 # include "GradeTooLowException.hpp"
+# include "Form.hpp"
 
 class Bureaucrat
 {
 
 	public:
-
 		Bureaucrat();
 		Bureaucrat(int, const std::string &);
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat();
+		void				signForm(Form &f);
 		int					getGrade() const;
 		void				decGrade();
 		void				incGrade();
@@ -24,7 +25,7 @@ class Bureaucrat
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 
 	private:
-		void					checkAndSetGrade(int gr);
+		void				checkGrade();
 		GradeTooHigh			GradeTooHighException;
 		GradeTooLow				GradeTooLowException;
 		const std::string		name;

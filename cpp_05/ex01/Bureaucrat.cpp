@@ -6,14 +6,12 @@
 
 Bureaucrat::Bureaucrat(): name("nameless_bureaucrat"), grade(150) { }
 
-Bureaucrat::Bureaucrat(int g, const std::string &s): name(s) {
-	this->grade = 150;
-	this->checkAndSetGrade(g);
+Bureaucrat::Bureaucrat(int g, const std::string &s): name(s), grade(g) {
+	this->checkGrade();
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & src ): name(src.name) {
-	this->grade = 150;
-	this->checkAndSetGrade(src.grade);
+Bureaucrat::Bureaucrat( const Bureaucrat & src ): name(src.name), grade(src.grade) {
+	this->checkGrade();
 }
 
 
@@ -33,7 +31,8 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs ) {
 	//{
 		//this->_value = rhs.getValue();
 	//}
-	this->checkAndSetGrade(rhs.grade);
+	this->grade = rhs.grade;
+	this->checkGrade();
 	return *this;
 }
 
@@ -57,23 +56,35 @@ int					Bureaucrat::getGrade() const {
 }
 
 void				Bureaucrat::incGrade() {
-	this->checkAndSetGrade(this->grade - 1);
+	this->grade--;
+	this->checkGrade();
 }
 
 void				Bureaucrat::decGrade() {
-	this->checkAndSetGrade(this->grade + 1);
+	this->grade++;
+	this->checkGrade();
 }
 
 const std::string	&Bureaucrat::getName() const {
 	return this->name;
 }
 
-void				Bureaucrat::checkAndSetGrade(int gr) {
-	if (gr < 1)
+void				Bureaucrat::checkGrade() {
+	if (this->grade < 1)
 		throw Bureaucrat::GradeTooHighException;
-	if (gr > 150)
+	if (this->grade > 150)
 		throw Bureaucrat::GradeTooLowException;
-	this->grade = gr;
 }
+
+void				Bureaucrat::signForm(Form &f) {
+	try {
+		f.beSigned(*this);
+		std::cout << this->name << " signs " << f.getName() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << this->name << " cannot sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 
 /* ************************************************************************** */
