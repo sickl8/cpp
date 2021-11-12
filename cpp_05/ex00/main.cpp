@@ -5,15 +5,15 @@ int		main() {
 		Bureaucrat bob(0, "bob");
 	}
 	catch (std::exception &e) {
-		std::cout << "caught exception" << std::endl;
-		std::cout << e.what() << std::endl;
+		std::cerr << "caught exception" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat obo(151, "bob");
 	}
 	catch (std::exception &e) {
-		std::cout << "caught exception" << std::endl;
-		std::cout << e.what() << std::endl;
+		std::cerr << "caught exception" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	Bureaucrat bob(150, "bob");
 	Bureaucrat obo(1, "obo");
@@ -31,15 +31,15 @@ int		main() {
 		bob.incGrade();
 	}
 	catch (std::exception &e) {
-		std::cout << "caught exception" << std::endl;
-		std::cout << e.what() << std::endl;
+		std::cerr << "caught exception" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	std::cout << bob << std::endl;
 	try {
 		Bureaucrat booob(bob);
 	}
 	catch (std::exception & e) {
-		std::cout << "caught exception" << std::endl;
-		std::cout << e.what() << std::endl;
+		std::cerr << "caught exception" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
