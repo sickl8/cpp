@@ -1,15 +1,16 @@
 #include "Form.hpp"
-
+#include "Bureaucrat.hpp"
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form() : name("nameless"), reqGradeSign(150), reqGradeExec(150), isSigned(false) {}
-Form::Form(std::string n, int s, int e) : name(n), reqGradeSign(s), reqGradeExec(e), isSigned(false) {
+Form::Form() : name("nameless"), isSigned(false), reqGradeSign(150), reqGradeExec(150) {}
+
+Form::Form(std::string n, int s, int e) : name(n), isSigned(false), reqGradeSign(s), reqGradeExec(e) {
 	this->checkGrades();
 }
 
-Form::Form(const Form &src) : name(src.name), reqGradeExec(src.reqGradeExec), reqGradeSign(src.reqGradeSign), isSigned(src.isSigned) {
+Form::Form(const Form &src) : name(src.name), isSigned(src.isSigned), reqGradeSign(src.reqGradeSign), reqGradeExec(src.reqGradeExec){
 	this->checkGrades();
 }
 

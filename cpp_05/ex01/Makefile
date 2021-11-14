@@ -1,5 +1,6 @@
 NAME=a.out
 SRC=Bureaucrat.cpp\
+Form.cpp\
 GradeTooHighException.cpp\
 GradeTooLowException.cpp\
 main.cpp

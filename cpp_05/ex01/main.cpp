@@ -43,11 +43,14 @@ int		main() {
 		std::cerr << "caught exception" << std::endl;
 		std::cerr << e.what() << std::endl;
 	}
-	Form f("form1", 150, 150);
+	Form f("form1", 1, 1);
+	bob.decGrade();
 	try {
 		f.beSigned(bob);
 	}
-	catch () {
-
+	catch (std::exception &e) {
+		std::cerr << "caught exception" << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+	bob.signForm(f);
 }
