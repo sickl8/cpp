@@ -21,3 +21,13 @@ void	WrongAnimal::makeSound() const {
 std::string const&WrongAnimal::getType() const {
 	return this->type;
 }
+
+
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal &ref) {
+	this->type = ref.type;
+}

@@ -5,6 +5,8 @@
 
 class WrongAnimal {
 	public:
+		WrongAnimal(const WrongAnimal &ref);
+		WrongAnimal	&operator=(const WrongAnimal &ref);
 		WrongAnimal();
 		~WrongAnimal();
 		void makeSound() const;

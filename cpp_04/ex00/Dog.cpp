@@ -17,3 +17,11 @@ Dog::~Dog() {
 void	Dog::makeSound() const {
 	cout << animalSound << endl;
 }
+Dog	&Dog::operator=(const Dog &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+Dog::Dog(const Dog &ref) {
+	this->type = ref.type;
+}

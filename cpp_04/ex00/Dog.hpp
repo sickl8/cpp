@@ -5,6 +5,8 @@
 
 class Dog : public Animal {
 	public:
+		Dog(const Dog &ref);
+		Dog	&operator=(const Dog &ref);
 		Dog();
 		~Dog();
 		void makeSound() const;

@@ -17,3 +17,11 @@ Cat::~Cat() {
 void	Cat::makeSound() const {
 	cout << animalSound << endl;
 }
+Cat	&Cat::operator=(const Cat &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+Cat::Cat(const Cat &ref) {
+	this->type = ref.type;
+}

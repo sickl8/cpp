@@ -28,6 +28,11 @@ Animal::  ~    Animal() {
 	cout << "Animal deleted" << endl;
 }
 
-Animal	&Animal::operator=(const Animal &ref) {}
+Animal	&Animal::operator=(const Animal &ref) {
+	this->type = ref.type;
+	return *this;
+}
 
-Animal::Animal(const Animal &ref) {}
+Animal::Animal(const Animal &ref) {
+	this->type = ref.type;
+}

@@ -5,6 +5,8 @@
 
 class WrongCat : public WrongAnimal {
 	public:
+		WrongCat(const WrongCat &ref);
+		WrongCat	&operator=(const WrongCat &ref);
 		WrongCat();
 		~WrongCat();
 		void makeSound() const;

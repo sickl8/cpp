@@ -17,3 +17,12 @@ WrongCat::~WrongCat() {
 void	WrongCat::makeSound() const {
 	cout << animalSound << endl;
 }
+
+WrongCat	&WrongCat::operator=(const WrongCat &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+WrongCat::WrongCat(const WrongCat &ref) {	
+	this->type = ref.type;
+}
