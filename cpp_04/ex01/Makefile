@@ -1,10 +1,8 @@
 NAME=a.out
 SRC=main.cpp\
 Cat.cpp\
-WrongCat.cpp\
 Dog.cpp\
 Animal.cpp\
-WrongAnimal.cpp\
 Brain.cpp
 CC=clang++
 CCLEAK = ~/.brew/Cellar/llvm/12.0.0_1/bin/clang++

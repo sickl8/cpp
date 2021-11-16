@@ -20,9 +20,11 @@ void	WrongCat::makeSound() const {
 
 WrongCat	&WrongCat::operator=(const WrongCat &ref) {
 	this->type = ref.type;
+	this->animalSound = ref.animalSound;
 	return *this;
 }
 
 WrongCat::WrongCat(const WrongCat &ref) {	
 	this->type = ref.type;
+	this->animalSound = ref.animalSound;
 }

@@ -25,9 +25,11 @@ std::string const&WrongAnimal::getType() const {
 
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &ref) {
 	this->type = ref.type;
+	this->animalSound = ref.animalSound;
 	return *this;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &ref) {
 	this->type = ref.type;
+	this->animalSound = ref.animalSound;
 }
