@@ -48,8 +48,17 @@ void Character::unequip(int idx) {
 		this->index--;
 	}
 }
+
 void Character::use(int idx, ICharacter& target) {
 	if (idx > -1 && idx < this->index) {
 		this->materia[idx]->use(target);
 	}
+}
+
+Character::Character(const Character &ref) {
+	
+}
+
+Character::Character() {
+	
 }

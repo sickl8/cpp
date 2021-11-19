@@ -41,3 +41,11 @@ void Brain::printIdeas() {
 	}
 }
 
+Brain::Brain(const Brain &ref) {
+	for (int i = 0; i < 100; i++) {
+		if (!(ref.ideas[i] == "")
+		&& ref.ideas[i].c_str())
+			this->ideas[i]
+			= ref.ideas[i].c_str();
+	}
+}

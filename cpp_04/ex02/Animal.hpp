@@ -5,6 +5,8 @@
 
 class Animal {
 	public:
+		Animal(const Animal &ref);
+		Animal	&operator=(const Animal &ref);
 		Animal();
 		virtual ~Animal();
 		Animal(std::string _type);

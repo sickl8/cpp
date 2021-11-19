@@ -5,6 +5,8 @@
 
 class Cure : public AMateria {
 	public:
+		Cure(const Cure &ref);
+		Cure	&operator=(const Cure &ref);
 		Cure();
 		~Cure();
 		AMateria* clone() const;

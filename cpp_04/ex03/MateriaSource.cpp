@@ -29,3 +29,16 @@ AMateria*	MateriaSource::createMateria(std::string const & type) {
 	}
 	return nullptr;
 }
+
+MateriaSource	&MateriaSource::operator=(const MateriaSource &ref) {
+	for (int i = 0; i < 4; i++) {
+		this->materia[i] = ref.materia[i]->clone();
+	}
+	return *this;
+}
+
+MateriaSource::MateriaSource(const MateriaSource &ref) {
+	for (int i = 0; i < 4; i++) {
+		this->materia[i] = ref.materia[i]->clone();
+	}
+}

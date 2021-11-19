@@ -21,3 +21,12 @@ Animal::~Animal() {
 std::string const&Animal::getType() const {
 	return this->type;
 }
+
+Animal	&Animal::operator=(const Animal &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+Animal::Animal(const Animal &ref) {
+	this->type = ref.type;
+}

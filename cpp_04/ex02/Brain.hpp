@@ -5,6 +5,7 @@
 
 class Brain {
 	public:
+		Brain(const Brain &ref);
 		Brain();
 		~Brain();
 		Brain &operator=(const Brain &ref);

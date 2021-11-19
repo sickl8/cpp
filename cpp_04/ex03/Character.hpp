@@ -9,6 +9,8 @@ class Character : public ICharacter {
 		int			index;
 		AMateria	*materia[4];
 	public:
+		Character();
+		Character(const Character &ref);
 		Character(std::string const &name);
 		Character &operator=(const Character &ref);
 		~Character();

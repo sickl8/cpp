@@ -12,3 +12,11 @@ AMateria* Ice::clone() const {
 void Ice::use(ICharacter& target) {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
+Ice	&Ice::operator=(const Ice &ref) {
+	this->type = ref.type;
+	return *this;
+}
+
+Ice::Ice(const Ice &ref) {
+	this->type = ref.type;
+}

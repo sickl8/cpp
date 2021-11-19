@@ -7,6 +7,8 @@ class MateriaSource : public IMateriaSource {
 	protected:
 		AMateria *materia[4];
 	public:
+		MateriaSource(const MateriaSource &ref);
+		MateriaSource	&operator=(const MateriaSource &ref);
 		MateriaSource();
 		~MateriaSource();
 		void learnMateria(AMateria*);
