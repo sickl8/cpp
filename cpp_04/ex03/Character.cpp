@@ -56,7 +56,9 @@ void Character::use(int idx, ICharacter& target) {
 }
 
 Character::Character(const Character &ref) {
-	
+	this->name = ref.name;
+	for (int i = 0; i < 4; i++)
+		this->materia[i] = ref.getMateria(i)->clone();
 }
 
 Character::Character() {
