@@ -27,8 +27,9 @@ class Form
 		int						getReqGrdExc() const;
 		void					beSigned(Bureaucrat const &ref);
 	private:
-		void					checkGrade(int gr);
-		void					checkGrades();
+		void					checkGrades(int, int);
+		void					checkGrade(int grd);
+		int						returnLegalGrade(int grd);
 		const std::string		name;
 		bool					isSigned;
 		const int				reqGradeSign;

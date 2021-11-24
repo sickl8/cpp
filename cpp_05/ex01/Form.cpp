@@ -6,13 +6,11 @@
 
 Form::Form() : name("nameless"), isSigned(false), reqGradeSign(150), reqGradeExec(150) {}
 
-Form::Form(std::string n, int s, int e) : name(n), isSigned(false), reqGradeSign(s), reqGradeExec(e) {
-	this->checkGrades();
+Form::Form(std::string n, int s, int e) : name(n), isSigned(false), reqGradeSign(this->returnLegalGrade(s)), reqGradeExec(this->returnLegalGrade(e)) {
+	this->checkGrades(s, e);
 }
 
-Form::Form(const Form &src) : name(src.name), isSigned(src.isSigned), reqGradeSign(src.reqGradeSign), reqGradeExec(src.reqGradeExec){
-	this->checkGrades();
-}
+Form::Form(const Form &src) : name(src.name), isSigned(src.isSigned), reqGradeSign(src.reqGradeSign), reqGradeExec(src.reqGradeExec) {}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -36,7 +34,7 @@ Form &Form::operator=(Form const &rhs)
 
 std::ostream &operator<<(std::ostream &o, Form const &i)
 {
-	o << "Form: " << i.getName() << ", required grade for signing/executing: " << i.getReqGrdSgn() << "/" << i.getReqGrdExc() << ", signed: " << i.getIsSigned();
+	o << "Form: " << i.getName() << ", required grade for signing/executing: " << i.getReqGrdSgn() << "/" << i.getReqGrdExc() << ", signed: " << (i.getIsSigned() ? "true" : "false");
 	return o;
 }
 
@@ -44,16 +42,30 @@ std::ostream &operator<<(std::ostream &o, Form const &i)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void				Form::checkGrade(int gr) {
-	if (gr < 1)
-		throw Form::GradeTooHighException;
-	if (gr > 150)
-		throw Form::GradeTooLowException;
+int					Form::returnLegalGrade(int gr) {
+	if (gr < 1) {
+		// throw Form::GradeTooHighException;
+		gr = 1;
+	}
+	if (150 < gr) {
+		// throw Form::GradeTooLowException;
+		gr = 150;
+	}
+	return gr;
 }
 
-void				Form::checkGrades() {
-	this->checkGrade(this->reqGradeExec);
-	this->checkGrade(this->reqGradeSign);
+void				Form::checkGrade(int gr) {
+	if (gr < 1) {
+		throw Form::GradeTooHighException;
+	}
+	if (gr > 150) {
+		throw Form::GradeTooLowException;
+	}
+}
+
+void				Form::checkGrades(int o, int t) {
+	this->checkGrade(o);
+	this->checkGrade(t);
 }
 
 void					Form::beSigned(Bureaucrat const &ref) {
