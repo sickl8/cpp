@@ -32,6 +32,7 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 	//{
 		//this->_value = rhs.getValue();
 	//}
+	this->target = rhs.target;
 	return *this;
 }
 
