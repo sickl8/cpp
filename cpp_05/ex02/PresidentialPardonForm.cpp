@@ -4,11 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm(std::string target): target(target)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ): Form(src), target(src.target)
 {
 }
 

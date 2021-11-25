@@ -3,20 +3,20 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
-class PresidentialPardonForm
-{
+class PresidentialPardonForm : public Form {
 
 	public:
 
-		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target = "none");
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		~PresidentialPardonForm();
 
 		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
 
 	private:
-
+		std::string		target;
 };
 
 std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );

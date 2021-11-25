@@ -4,11 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm(std::string target): target(target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ): Form(src), target(src.target)
 {
 }
 

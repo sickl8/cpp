@@ -3,20 +3,21 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public Form 
 {
 
 	public:
 
-		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target = "none");
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
 	private:
-
+		std::string		target;
 };
 
 std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
