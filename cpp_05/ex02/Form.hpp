@@ -26,6 +26,7 @@ class Form
 		int						getReqGrdSgn() const;
 		int						getReqGrdExc() const;
 		void					beSigned(Bureaucrat const &ref);
+		void					execute(Bureaucrat const & executor) const;
 	private:
 		void					checkGrades(int, int);
 		void					checkGrade(int grd);

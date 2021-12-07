@@ -98,6 +98,10 @@ int Form::getReqGrdExc() const
 	return this->reqGradeExec;
 }
 
+void	Form::execute(const Bureaucrat &ref) const {
+	
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
