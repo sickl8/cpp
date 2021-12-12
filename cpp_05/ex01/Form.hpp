@@ -25,6 +25,8 @@ class Form
 		bool					getIsSigned() const;
 		int						getReqGrdSgn() const;
 		int						getReqGrdExc() const;
+		std::exception const	&getExceptionLow() const;
+		std::exception const	&getExceptionHigh() const;
 		void					beSigned(Bureaucrat const &ref);
 	private:
 		void					checkGrades(int, int);

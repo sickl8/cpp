@@ -13,6 +13,7 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm(std::string target = "none");
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		~ShrubberyCreationForm();
+		void	execute(const Bureaucrat &ref) const;
 
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
@@ -20,6 +21,6 @@ class ShrubberyCreationForm : public Form
 		std::string		target;
 };
 
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
+// std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

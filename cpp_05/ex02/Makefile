@@ -1,8 +1,12 @@
 NAME=a.out
 SRC=Bureaucrat.cpp\
+ExecOnUnsignedForm.cpp\
 Form.cpp\
 GradeTooHighException.cpp\
 GradeTooLowException.cpp\
+PresidentialPardonForm.cpp\
+RobotomyRequestForm.cpp\
+ShrubberyCreationForm.cpp\
 main.cpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror

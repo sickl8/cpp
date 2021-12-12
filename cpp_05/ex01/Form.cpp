@@ -98,6 +98,14 @@ int Form::getReqGrdExc() const
 	return this->reqGradeExec;
 }
 
+std::exception	const &Form::getExceptionHigh() const {
+	return (this->GradeTooHighException);
+}
+
+std::exception	const &Form::getExceptionLow() const {
+	return (this->GradeTooLowException);
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

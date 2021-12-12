@@ -42,7 +42,7 @@ std::ostream &operator<<(std::ostream &o, Form const &i)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-int					Form::returnLegalGrade(int gr) {
+int					Form::returnLegalGrade(int gr) const {
 	if (gr < 1) {
 		// throw Form::GradeTooHighException;
 		gr = 1;
@@ -54,7 +54,7 @@ int					Form::returnLegalGrade(int gr) {
 	return gr;
 }
 
-void				Form::checkGrade(int gr) {
+void				Form::checkGrade(int gr) const {
 	if (gr < 1) {
 		throw Form::GradeTooHighException;
 	}
@@ -63,7 +63,7 @@ void				Form::checkGrade(int gr) {
 	}
 }
 
-void				Form::checkGrades(int o, int t) {
+void				Form::checkGrades(int o, int t) const {
 	this->checkGrade(o);
 	this->checkGrade(t);
 }
@@ -99,7 +99,22 @@ int Form::getReqGrdExc() const
 }
 
 void	Form::execute(const Bureaucrat &ref) const {
-	
+	this->checkGrade(ref.getGrade());
+	if (ref.getGrade() > this->reqGradeExec) {
+		throw Form::GradeTooLowException;
+	}
+}
+
+std::exception	const &Form::getExceptionHigh() const {
+	return (this->GradeTooHighException);
+}
+
+std::exception	const &Form::getExceptionLow() const {
+	return (this->GradeTooLowException);
+}
+
+std::exception	const &Form::getInvalidExec() const {
+	return (this->InvalidExec);
 }
 
 /*

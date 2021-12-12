@@ -9,6 +9,7 @@
 class Bureaucrat;
 #include "GradeTooHighException.hpp"
 #include "GradeTooLowException.hpp"
+#include "ExecOnUnsignedForm.hpp"
 
 class Form
 {
@@ -26,18 +27,22 @@ class Form
 		int						getReqGrdSgn() const;
 		int						getReqGrdExc() const;
 		void					beSigned(Bureaucrat const &ref);
-		void					execute(Bureaucrat const & executor) const;
+		virtual void			execute(Bureaucrat const & executor) const = 0;
+		std::exception const	&getExceptionLow() const;
+		std::exception const	&getExceptionHigh() const;
+		std::exception const	&getInvalidExec() const;
+	protected:
+		void					checkGrades(int, int) const;
+		void					checkGrade(int grd) const;
+		int						returnLegalGrade(int grd) const;
 	private:
-		void					checkGrades(int, int);
-		void					checkGrade(int grd);
-		int						returnLegalGrade(int grd);
 		const std::string		name;
 		bool					isSigned;
 		const int				reqGradeSign;
 		const int				reqGradeExec;
 		GradeTooHigh			GradeTooHighException;
 		GradeTooLow				GradeTooLowException;
-
+		ExecOnUnsignedForm		InvalidExec;
 };
 
 std::ostream &			operator<<( std::ostream & o, Form const & i );

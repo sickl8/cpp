@@ -12,13 +12,16 @@ class PresidentialPardonForm : public Form {
 		PresidentialPardonForm(std::string target = "none");
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		~PresidentialPardonForm();
+		void	execute(const Bureaucrat &ref) const;
 
 		PresidentialPardonForm &		operator=( PresidentialPardonForm const & rhs );
 
+
 	private:
 		std::string		target;
+		
 };
 
-std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );
+// std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i );
 
 #endif /* ****************************************** PRESIDENTIALPARDONFORM_H */

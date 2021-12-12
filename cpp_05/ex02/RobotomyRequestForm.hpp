@@ -11,13 +11,13 @@ class RobotomyRequestForm : public Form {
 		RobotomyRequestForm(std::string target = "none");
 		RobotomyRequestForm( RobotomyRequestForm const & src );
 		~RobotomyRequestForm();
-
+		void	execute(const Bureaucrat &ref) const;
 		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
 
 	private:
 		std::string		target;
 };
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
+// std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
 
 #endif /* ********************************************* ROBOTOMYREQUESTFORM_H */
