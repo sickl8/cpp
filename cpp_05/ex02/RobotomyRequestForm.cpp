@@ -57,6 +57,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &ref) const
 	{
 		throw GradeTooLow();
 	}
+	std::srand(time(nullptr));
 	if (std::rand() % 2)
 	{
 		std::cout << "** LOUD DRILLING NOISES **" << std::endl;
@@ -64,7 +65,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &ref) const
 	}
 	else
 	{
-		std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+		std::cout << this->target << " failed robotimization" << std::endl;
 	}
 }
 
