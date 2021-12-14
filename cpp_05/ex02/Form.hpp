@@ -19,7 +19,7 @@ class Form
 		Form();
 		Form(std::string n, int s, int e);
 		Form( Form const & src );
-		~Form();
+		virtual ~Form();
 
 		Form &		operator=( Form const & rhs );
 		const std::string		&getName() const;
