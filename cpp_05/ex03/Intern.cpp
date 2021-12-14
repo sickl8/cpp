@@ -71,6 +71,7 @@ Form	*Intern::makeForm(std::string formType, std::string target) {
 		if (formType == formTypes[i])
 			return f[i](target);
 	}
+	std::cout << "I'm new here sorry" << std::endl;
 	return nullptr;
 }
 

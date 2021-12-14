@@ -17,6 +17,7 @@ int		main() {
 		Form	*sc = intern.makeForm("shrubbery creation", "shrubbery");
 		Form	*pp = intern.makeForm("presidential pardon", "president");
 		Form	*rr = intern.makeForm("robotomy request", "robotomy");
+		Form	*iv = intern.makeForm("5tk", "idk");
 
 		sc->beSigned(bob);
 		pp->beSigned(bob);
@@ -24,6 +25,12 @@ int		main() {
 		sc->execute(bob);
 		pp->execute(bob);
 		rr->execute(bob);
+		if (iv) {
+			cout << "test failed" << endl;
+		}
+		else {
+			cout << "test passed" << endl;
+		}
 		delete sc;
 		delete pp;
 		delete rr;
