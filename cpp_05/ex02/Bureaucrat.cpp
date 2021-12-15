@@ -23,6 +23,16 @@ Bureaucrat::Bureaucrat( const Bureaucrat & src ): name(src.name) {
 
 Bureaucrat::~Bureaucrat() { }
 
+void				Bureaucrat::executeForm(const Form &ref) const {
+	try {
+		ref.execute(*this);
+		std::cout << this->getName() << " executes " << ref.getName() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << this->getName() << " cannot execute " << ref.getName() << " because " << e.what() << std::endl;
+	}
+}
+
 void				Bureaucrat::signForm(Form &ref) const {
 	try {
 		ref.beSigned(*this);
@@ -78,11 +88,17 @@ const std::string	&Bureaucrat::getName() const {
 }
 
 void				Bureaucrat::checkAndSetGrade(int gr) {
-	if (gr < 1)
-		throw Bureaucrat::GradeTooHighException;
-	if (gr > 150)
-		throw Bureaucrat::GradeTooLowException;
 	this->grade = gr;
+	if (gr < 1) {
+		gr = 1;
+		this->grade = gr;
+		throw Bureaucrat::GradeTooHighException;
+	}
+	if (gr > 150) {
+		gr = 150;
+		this->grade = gr;
+		throw Bureaucrat::GradeTooLowException;
+	}
 }
 
 /* ************************************************************************** */

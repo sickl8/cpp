@@ -78,11 +78,17 @@ const std::string	&Bureaucrat::getName() const {
 }
 
 void				Bureaucrat::checkAndSetGrade(int gr) {
-	if (gr < 1)
-		throw Bureaucrat::GradeTooHighException;
-	if (gr > 150)
-		throw Bureaucrat::GradeTooLowException;
 	this->grade = gr;
+	if (gr < 1) {
+		gr = 1;
+		this->grade = gr;
+		throw Bureaucrat::GradeTooHighException;
+	}
+	if (gr > 150) {
+		gr = 150;
+		this->grade = gr;
+		throw Bureaucrat::GradeTooLowException;
+	}
 }
 
 /* ************************************************************************** */

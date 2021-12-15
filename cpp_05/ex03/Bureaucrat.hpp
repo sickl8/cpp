@@ -22,7 +22,7 @@ class Bureaucrat
 		void				incGrade();
 		const std::string	&getName() const;
 		void				signForm(Form &ref) const;
-
+		void				executeForm(Form const & form) const;
 		Bureaucrat &		operator=( Bureaucrat const & rhs );
 
 	private:
