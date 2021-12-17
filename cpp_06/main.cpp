@@ -7,20 +7,46 @@ int		main(int ac, char **av) {
 	if (ac < 2) {
 		return 1;
 	}
-	int		i = 808;
+	int		i;
 	std::string is;
-	float	f = 808.808f;
+	float	f;
 	std::string fs;
-	double	d = 808.808;
+	double	d;
 	std::string ds;
-	char	c = 'A';
+	char	c;
 	std::string cs;
 
-	// (void)i;
-	// (void)f;
-	// (void)d;
-	// (void)c;
 	std::string	s(av[1]);
+	try {
+		std::stringstream stream;
+		c = static_cast<char>(stoi(s));
+		if (isprint(c)) {
+			stream << c;
+			stream >> cs;
+		}
+		else {
+			cs = "Non displayable";
+		}
+	}
+	catch (std::exception &e){
+		try {
+			if (s[0] == '\'' && isprint(s[1]) && s[2] == '\'' && s.length() == 3) {
+				c = s[1];
+				if (isprint(c)) {
+					cs = std::string((char[]){c, '\0'});
+				}
+				else {
+					cs = "Non displayable";
+				}
+			}
+			else {
+				throw std::exception();
+			}
+		}
+		catch (std::exception &e) {
+			cs = "impossible";
+		}
+	}
 	try {
 		std::stringstream stream;
 		i = stoi(s);
@@ -28,16 +54,14 @@ int		main(int ac, char **av) {
 		stream >> is;
 	}
 	catch (std::exception &e){
-		is = "impossible";
-	}
-	try {
-		std::stringstream stream;
-		c = (char)stoi(s);
-		stream << c;
-		stream >> cs;
-	}
-	catch (std::exception &e){
-		cs = "impossible";
+		if (cs.length() == 1) {
+			std::stringstream stream;
+			i = static_cast<int>(c);
+			stream << i;
+			stream >> is;
+		}
+		else
+			is = "impossible";
 	}
 	try {
 		std::stringstream stream;
@@ -47,7 +71,15 @@ int		main(int ac, char **av) {
 		stream >> fs;
 	}
 	catch (std::exception &e){
-		fs = "impossible";
+		if (cs.length() == 1) {
+			std::stringstream stream;
+			stream.precision(1);
+			f = static_cast<float>(c);
+			stream << std::fixed << f;
+			stream >> fs;
+		}
+		else
+			fs = "impossible";
 	}
 	try {
 		std::stringstream stream;
@@ -57,7 +89,15 @@ int		main(int ac, char **av) {
 		stream >> ds;
 	}
 	catch (std::exception &e){
-		ds = "impossible";
+		if (cs.length() == 1) {
+			std::stringstream stream;
+			stream.precision(1);
+			d = static_cast<double>(c);
+			stream << std::fixed << d;
+			stream >> ds;
+		}
+		else
+			ds = "impossible";
 	}
 	std::cout << "char: " << cs << std::endl;
 	std::cout << "int: " << is << std::endl;
