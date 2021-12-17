@@ -4,13 +4,16 @@
 #include <string>
 #include <sys/time.h>
 
-#define PRINTTYPE(x, y) \
-		try {\
-			x &a = dynamic_cast<x&>(y);\
+#define PRINTTYPEONE(x) try {\
+			x &a = dynamic_cast<x&>(p);\
 			(void)a;\
 			std::cout << #x << std::endl;\
 		}\
-		catch(std::exception &e) { (void)e; }\
+		catch(std::exception &e) { (void)e; }
+#define PRINTTYPETWO(x) \
+			{x *a = dynamic_cast<x*>(p);\
+			if (a)\
+				std::cout << #x << std::endl;}
 
 class Base {
 	public:
@@ -48,15 +51,15 @@ Base	*generate(void) {
 }
 
 void	identify(Base *p) {
-	PRINTTYPE(A, *p);
-	PRINTTYPE(B, *p);
-	PRINTTYPE(C, *p);
+	PRINTTYPETWO(A);
+	PRINTTYPETWO(B);
+	PRINTTYPETWO(C);
 }
 
 void	identify(Base &p) {
-	PRINTTYPE(A, p);
-	PRINTTYPE(B, p);
-	PRINTTYPE(C, p);
+	PRINTTYPEONE(A);
+	PRINTTYPEONE(B);
+	PRINTTYPEONE(C);
 }
 
 int		main() {
