@@ -4,11 +4,13 @@
 #include <string>
 #include <sys/time.h>
 
-#define PRINTTYPE(x, y) {\
-		x *a = dynamic_cast<x*>(y);\
-		if (a)\
+#define PRINTTYPE(x, y) \
+		try {\
+			x &a = dynamic_cast<x&>(y);\
+			(void)a;\
 			std::cout << #x << std::endl;\
-		}
+		}\
+		catch(std::exception &e) { (void)e; }\
 
 class Base {
 	public:
@@ -46,15 +48,15 @@ Base	*generate(void) {
 }
 
 void	identify(Base *p) {
-	PRINTTYPE(A, p);
-	PRINTTYPE(B, p);
-	PRINTTYPE(C, p);
+	PRINTTYPE(A, *p);
+	PRINTTYPE(B, *p);
+	PRINTTYPE(C, *p);
 }
 
 void	identify(Base &p) {
-	PRINTTYPE(A, &p);
-	PRINTTYPE(B, &p);
-	PRINTTYPE(C, &p);
+	PRINTTYPE(A, p);
+	PRINTTYPE(B, p);
+	PRINTTYPE(C, p);
 }
 
 int		main() {
