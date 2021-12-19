@@ -2,7 +2,7 @@ NAME=a.out
 SRC=main.cpp
 CC=clang++
 FLAGS=-Wall -Wextra -Werror -std=c++98
-
+CCLEAK=~/.brew/Cellar/llvm/12.0.0_1/bin/clang++
 all: $(NAME)
 
 $(NAME):
@@ -15,12 +15,13 @@ fclean: clean
 	rm -rf $(NAME)
 
 san: fclean
-	$(CC) $(FLAGS) -g -fsanitize=address -o $(NAME) $(SRC)
+	ASAN_OPTIONS=detect_leaks=0; $(CC) $(FLAGS) -g -fsanitize=address -o $(NAME) $(SRC)
 
 re: fclean all
 
 run:
 
 leak:
+	ASAN_OPTIONS=detect_leaks=1; $(CCLEAK) $(FLAGS) -g -fsanitize=leak -o $(NAME) $(SRC)
 
 .PHONY: all clean fclean re san leak run
