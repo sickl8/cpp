@@ -2,14 +2,12 @@
 #include <iostream>
 #include <string>
 
-const char	*funcString(std::string &p) {
+void	funcString(std::string &p) {
 	p = p + p;
-	return p.c_str();
 }
 
-int		func(int &p) {
+void	func(int &p) {
 	p = p * 2;
-	return p;
 }
 
 int		main() {
