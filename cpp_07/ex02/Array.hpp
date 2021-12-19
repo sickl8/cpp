@@ -40,7 +40,13 @@ class Array {
 			}
 			return array[index];
 		}
-		unsigned int	size() {
+		const T		&operator[](long index) const {
+			if (index < 0 || index >= _size) {
+				throw excep;
+			}
+			return array[index];
+		}
+		unsigned int	size() const {
 			return _size;
 		}
 	private:
