@@ -3,13 +3,15 @@
 
 #include <iterator>
 
-template<typename T, typename it>
-it &easyfind(T container, int toFind) {
-	auto a = std::find(container.begin(), container.end(), toFind);
-	if (a == container.end()) {
-		throw std::exception("not found");
-	}	
-	return (a);
+
+
+template<typename T>
+int		easyfind(T container, int toFind) {
+	typename T::iterator a = std::find(container.begin(), container.end(), toFind);
+	if (a != container.end()) {
+		return a - container.begin();
+	}
+	return (-1);
 }
 
 #endif

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-// #include "easyfind.hpp"
+#include "easyfind.hpp"
 
 int		main(
 	// int	ac
@@ -10,10 +10,15 @@ int		main(
 ) {
 	int arr[] = {1, 2, 3, 4};
 	std::vector<int> v(arr, arr + 4);
-	v.begin();
-	// try {
-	// 	auto i = easyfind(v, 5);
-	// } catch (std::exception &e) {
-	// 	std::cout << "not found" << std::endl;
-	// }
+	int i;
+	i = easyfind(v, 5);
+	if (i != -1)
+		std::cout << "found at index " << i << ", v[i] = " << v[i] << std::endl;
+	else
+		std::cout << "not found" << std::endl;
+	i = easyfind(v, 4);
+	if (i != -1)
+		std::cout << "found at index " << i << ", v[i] = " << v[i] << std::endl;
+	else
+		std::cout << "not found" << std::endl;
 }
