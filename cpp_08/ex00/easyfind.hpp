@@ -3,8 +3,6 @@
 
 #include <iterator>
 
-
-
 template<typename T>
 int		easyfind(T container, int toFind) {
 	typename T::iterator a = std::find(container.begin(), container.end(), toFind);
